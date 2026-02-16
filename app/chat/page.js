@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import DropdownNavigation from "@/components/ui/DropdownNavigation"
+import DropdownNavigation from "@/components/ui/DropdownNavigation.jsx"
 import ChatInterface from "@/components/chat/ChatInterface"
 import OnlineUsers from "@/components/chat/OnlineUsers"
 import ChatRooms from "@/components/chat/ChatRooms"
-import Logo from "@/components/ui/Logo"
+import Logo from "@/components/ui/Logo.jsx"
 import GlassCard from "@/components/ui/GlassCard"
 import FloatingElements from "@/components/ui/FloatingElements"
 import { Users, MessageSquare, Settings } from "lucide-react"

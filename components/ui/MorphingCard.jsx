@@ -28,26 +28,41 @@ export default function MorphingCard({ frontContent, backContent, trigger = "hov
 
   return (
     <div
-      className={`group perspective-1000 ${className}`}
+      className={`group ${className}`}
       onClick={handleInteraction}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={{
+        perspective: "1000px",
+      }}
     >
       <div
-        className={`
-          relative w-full h-full transition-transform duration-700 transform-style-preserve-3d
-          ${isFlipped ? "rotate-y-180" : ""}
-        `}
+        className="relative w-full h-full transition-transform duration-700"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
       >
-        {/* 正面 */}
-        <div className="absolute inset-0 w-full h-full backface-hidden">
+        {/* Front side */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backfaceVisibility: "hidden",
+          }}
+        >
           <div className="w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6 shadow-lg">
             {frontContent}
           </div>
         </div>
 
-        {/* 背面 */}
-        <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
+        {/* Back side */}
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+        >
           <div className="w-full h-full bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200 p-6 shadow-lg">
             {backContent}
           </div>

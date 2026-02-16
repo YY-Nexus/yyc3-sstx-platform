@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import DropdownNavigation from "@/components/ui/DropdownNavigation"
-import Logo from "@/components/ui/Logo"
+import DropdownNavigation from "@/components/ui/DropdownNavigation.jsx"
+import Logo from "@/components/ui/Logo.jsx"
 import NeonButton from "@/components/ui/NeonButton"
 import FloatingElements from "@/components/ui/FloatingElements"
 import GlassCard from "@/components/ui/GlassCard"
@@ -39,7 +39,7 @@ export default function HomePage() {
 
             {/* 主标题 */}
             <div className="mb-6">
-              <GradientText text="YanYu Cloud³ 智能云平台" className="text-4xl md:text-6xl font-bold mb-4" />
+              <GradientText text="YanYu Cloud³ 智能云平台" className="text-4xl md:text-6xl font-bold mb-4" size="6xl" />
               <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
                 下一代实时通信与云服务平台，为您提供极致的用户体验
               </p>

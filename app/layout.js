@@ -1,29 +1,39 @@
-import "./globals.css"
-import ClientLayout from "./ClientLayout"
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+
+const geist = Geist({ subsets: ["latin"] })
+const geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "YanYu Cloud³ 实时通信平台 - www.0379.vin",
-  description: "YanYu Cloud³提供的专业WebSocket实时通信服务，支持即时消息、在线状态和数据同步",
-  keywords: "YanYu Cloud³, 实时通信, WebSocket, 0379, 洛阳",
-  authors: [{ name: "YanYu Cloud³", url: "https://www.0379.vin" }],
-  creator: "YanYu Cloud³",
-  publisher: "YanYu Cloud³",
-  openGraph: {
-    title: "YanYu Cloud³ 实时通信平台",
-    description: "专业的WebSocket实时通信服务",
-    url: "https://www.0379.vin",
-    siteName: "YanYu Cloud³",
-    locale: "zh_CN",
-    type: "website",
+  title: 'YanYu Cloud³',
+  description: 'Intelligent Cloud Platform with Real-time Chat',
+  generator: 'v0.app',
+  icons: {
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
   },
-  generator: "v0.dev",
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh-CN">
-      <body>
-        <ClientLayout>{children}</ClientLayout>
+    <html lang="en">
+      <body className="font-sans antialiased">
+        {children}
+        <Analytics />
       </body>
     </html>
   )

@@ -38,13 +38,32 @@ export default function ProgressRing({
   const strokeDasharray = circumference
   const strokeDashoffset = circumference - (animatedProgress / 100) * circumference
 
-  const colors = {
+  const colorMap = {
     blue: "stroke-blue-500",
     purple: "stroke-purple-500",
     green: "stroke-green-500",
     red: "stroke-red-500",
     yellow: "stroke-yellow-500",
     pink: "stroke-pink-500",
+  }
+
+  // Handle gradient strings or color names
+  const getStrokeColor = () => {
+    if (typeof color === "string") {
+      // If it's a gradient string, use green as a fallback for SVG
+      if (color.includes("from-") && color.includes("to-")) {
+        // Extract color from gradient string (e.g., "from-green-400" -> "green")
+        const match = color.match(/from-(\w+)-/)
+        if (match) {
+          const colorName = match[1]
+          return `stroke-${colorName}-500`
+        }
+        return colorMap.green
+      }
+      // Otherwise use the color name directly
+      return colorMap[color] || colorMap.blue
+    }
+    return colorMap.blue
   }
 
   return (
@@ -72,7 +91,7 @@ export default function ProgressRing({
           strokeDasharray={strokeDasharray}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
-          className={`${colors[color]} transition-all duration-1000 ease-out`}
+          className={`${getStrokeColor()} transition-all duration-1000 ease-out`}
         />
       </svg>
 

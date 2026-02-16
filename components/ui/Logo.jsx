@@ -4,13 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
-interface LogoProps {
-  size?: "sm" | "md" | "lg" | "xl"
-  showText?: boolean
-  href?: string
-  className?: string
-}
-
 const sizeConfig = {
   sm: { width: 32, height: 32, textSize: "text-sm" },
   md: { width: 48, height: 48, textSize: "text-base" },
@@ -18,8 +11,8 @@ const sizeConfig = {
   xl: { width: 80, height: 80, textSize: "text-xl" },
 }
 
-export default function Logo({ size = "md", showText = true, href = "/", className = "" }: LogoProps) {
-  const config = sizeConfig[size]
+export default function Logo({ size = "md", showText = true, href = "/", className = "" }) {
+  const config = sizeConfig[size] || sizeConfig.md
 
   const logoContent = (
     <div className={cn("flex items-center gap-3 group", className)}>

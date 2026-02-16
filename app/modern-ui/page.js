@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import DropdownNavigation from "@/components/ui/DropdownNavigation"
-import Logo from "@/components/ui/Logo"
+import DropdownNavigation from "@/components/ui/DropdownNavigation.jsx"
+import Logo from "@/components/ui/Logo.jsx"
 import NeonButton from "@/components/ui/NeonButton"
 import GlassCard from "@/components/ui/GlassCard"
 import FloatingElements from "@/components/ui/FloatingElements"
@@ -49,7 +49,7 @@ export default function ModernUIPage() {
               <Logo size="xl" showText={true} href="#" />
             </div>
 
-            <GradientText text="现代化UI组件展示" className="text-4xl md:text-6xl font-bold mb-6" />
+            <GradientText text="现代化UI组件展示" className="text-4xl md:text-6xl font-bold mb-6" size="6xl" />
 
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               体验YanYu Cloud³的精美UI组件库，感受现代设计的魅力
@@ -164,21 +164,24 @@ export default function ModernUIPage() {
               <GlassCard className="p-8 mb-8 text-center">
                 <h2 className="text-2xl font-bold mb-8">渐变文字效果</h2>
                 <div className="space-y-6">
-                  <GradientText text="YanYu Cloud³" className="text-5xl font-bold" />
+                  <GradientText text="YanYu Cloud³" className="text-5xl font-bold" size="5xl" />
                   <GradientText
                     text="现代化云服务平台"
                     className="text-3xl font-semibold"
                     gradient="from-green-400 to-blue-500"
+                    size="3xl"
                   />
                   <GradientText
                     text="创新 · 高效 · 可靠"
                     className="text-2xl font-medium"
                     gradient="from-purple-400 via-pink-500 to-red-500"
+                    size="2xl"
                   />
                   <GradientText
                     text="Experience the Future"
                     className="text-xl"
                     gradient="from-cyan-400 to-purple-600"
+                    size="xl"
                   />
                 </div>
               </GlassCard>
@@ -238,7 +241,7 @@ export default function ModernUIPage() {
                     <FloatingElements variant="geometric" count={8} />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
-                        <GradientText text="几何美学" className="text-3xl font-bold" />
+                        <GradientText text="几何美学" className="text-3xl font-bold" size="3xl" />
                         <p className="mt-4 text-gray-600">三角形旋转效果</p>
                       </div>
                     </div>

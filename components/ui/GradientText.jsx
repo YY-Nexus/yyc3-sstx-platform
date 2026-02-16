@@ -1,8 +1,10 @@
 "use client"
 
 export default function GradientText({
+  text,
   children,
   variant = "primary",
+  gradient,
   size = "base",
   animated = false,
   className = "",
@@ -24,18 +26,22 @@ export default function GradientText({
     "2xl": "text-2xl",
     "3xl": "text-3xl",
     "4xl": "text-4xl",
+    "5xl": "text-5xl",
+    "6xl": "text-6xl",
   }
+
+  const gradientClass = gradient || variants[variant] || variants.primary
 
   return (
     <span
       className={`
-        bg-gradient-to-r ${variants[variant]} bg-clip-text text-transparent font-bold
-        ${sizes[size]}
+        bg-gradient-to-r ${gradientClass} bg-clip-text text-transparent font-bold
+        ${sizes[size] || sizes.base}
         ${animated ? "animate-gradient-x bg-[length:200%_200%]" : ""}
         ${className}
       `}
     >
-      {children}
+      {text || children}
     </span>
   )
 }
